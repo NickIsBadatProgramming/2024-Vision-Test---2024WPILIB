@@ -35,7 +35,7 @@ public class SwerveModule extends SubsystemBase {
 
     lastAngle = angle;
 
-    double difference = angle - this.rotationEncoder.getAbsolutePosition().getValueAsDouble();
+    double difference = angle - getModuleRotation();
 
     if(difference > 180) {
       difference -= 360;
@@ -45,7 +45,7 @@ public class SwerveModule extends SubsystemBase {
     }
 
 
-    this.steerMotorSpeed = steerSpeed(rotationEncoder.getAbsolutePosition().getValueAsDouble(), lastAngle);
+    this.steerMotorSpeed = steerSpeed(getModuleRotation(), lastAngle);
     this.driveMotorSpeed = speed * ((90 - Math.abs(difference))/90); //This won't ever be above 90 because of the way the swerve library works
 
 
