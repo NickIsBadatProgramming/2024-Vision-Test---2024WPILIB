@@ -21,17 +21,17 @@ public final class Constants {
       public final static double swerveI = 0.0001;
       public final static double swerveD = 0.0000000000001;
 
-      public final static double FROffset = 350.5;
-      public final static double FLOffset = 352.5 - 180;
-      public final static double BLOffset = 179.5;
-      public final static double BROffset = 218.1;
+      public final static double FROffset = 359.8;
+      public final static double FLOffset = 164.7;
+      public final static double BLOffset = 180.8;
+      public final static double BROffset = 212.5;
 
       public final static double xboxDeadzone = 0.15;
       public final static double translationLimit = 3;
       public final static double rotationLimit = 2;
 
       public final static double angleTolerance = 1;
-      public static final double minModuleTurnSpeed = 0.07;
+      public static final double minModuleTurnSpeed = 0.02;
       public static final double additionalTurnSpeed = 0.28;
 
 

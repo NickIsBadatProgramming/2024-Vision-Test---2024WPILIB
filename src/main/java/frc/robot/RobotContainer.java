@@ -10,6 +10,7 @@ import com.ctre.phoenix6.configs.MotorOutputConfigs;
 import com.ctre.phoenix6.hardware.CANcoder;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.AbsoluteSensorRangeValue;
+import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.kauailabs.navx.frc.AHRS;
 
@@ -92,6 +93,9 @@ public class RobotContainer {
     dBL.getConfigurator().apply(talonConfigs);
     dBR.getConfigurator().apply(talonConfigs);
 
+    dFR.getConfigurator().refresh(new MotorOutputConfigs().withInverted(InvertedValue.Clockwise_Positive));
+    dBR.getConfigurator().refresh(new MotorOutputConfigs().withInverted(InvertedValue.Clockwise_Positive));
+
     //CANCoders
     FR = new CANcoder(12);
     FL = new CANcoder(9);
@@ -109,10 +113,10 @@ public class RobotContainer {
     BL.getConfigurator().apply(cancoderConfiguration);
 
     
-    FR.getConfigurator().apply(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.FROffset/360));
-    FL.getConfigurator().apply(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.FLOffset/360));
-    BL.getConfigurator().apply(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.BLOffset/360));
-    BR.getConfigurator().apply(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.BROffset/360));
+    FR.getConfigurator().refresh(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.FROffset/360));
+    FL.getConfigurator().refresh(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.FLOffset/360));
+    BL.getConfigurator().refresh(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.BLOffset/360));
+    BR.getConfigurator().refresh(new MagnetSensorConfigs().withMagnetOffset(swerveConstants.BROffset/360));
 
     swerveFR = new FRSwerve(dFR, sFR, FR);
     swerveFL = new FLSwerve(dFL, sFL, FL);
